@@ -6,7 +6,7 @@ resource "aws_cloudfront_distribution" "default" {
   enabled             = true
   is_ipv6_enabled     = true
   comment             = "${var.name}"
-  aliases             = ["${var.hostname}"]
+  aliases             = "${var.hostnames}"
   price_class         = "PriceClass_All"
   default_root_object = "index.html"
 

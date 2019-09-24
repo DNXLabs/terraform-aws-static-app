@@ -1,6 +1,8 @@
 variable "name" {}
 variable "s3_bucket_id" {}
-variable "hostname" {}
+variable "hostnames" {
+    type = "list"
+}
 variable "hosted_zone" {}
 variable "certificate_arn" {}
 

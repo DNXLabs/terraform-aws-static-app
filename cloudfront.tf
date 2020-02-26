@@ -19,6 +19,12 @@ resource "aws_cloudfront_distribution" "default" {
     }
   }
 
+  logging_config {
+    include_cookies = false
+    bucket          = "${var.cloudfront_logging_bucket}"
+    prefix          = "${var.cloudfront_logging_prefix}"
+  }
+
   default_cache_behavior {
     allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods   = ["GET", "HEAD"]

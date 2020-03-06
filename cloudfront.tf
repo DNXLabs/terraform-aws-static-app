@@ -19,10 +19,14 @@ resource "aws_cloudfront_distribution" "default" {
     }
   }
 
-  logging_config {
-    include_cookies = false
-    bucket          = "${var.cloudfront_logging_bucket}"
-    prefix          = "${var.cloudfront_logging_prefix}"
+  dynamic "logging_config" {
+    for_each = "${compact([var.cloudfront_logging_bucket])}"
+
+    content {
+      include_cookies = false
+      bucket          = "${var.cloudfront_logging_bucket}"
+      prefix          = "${var.cloudfront_logging_prefix}"
+    }
   }
 
   default_cache_behavior {

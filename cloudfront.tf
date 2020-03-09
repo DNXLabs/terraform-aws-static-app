@@ -5,27 +5,27 @@ resource "aws_cloudfront_origin_access_identity" "default" {
 resource "aws_cloudfront_distribution" "default" {
   enabled             = true
   is_ipv6_enabled     = true
-  comment             = "${var.name}"
-  aliases             = "${var.hostnames}"
+  comment             = var.name
+  aliases             = var.hostnames
   price_class         = "PriceClass_All"
   default_root_object = "index.html"
 
   origin {
-    domain_name = "${data.aws_s3_bucket.selected.bucket_regional_domain_name}"
+    domain_name = data.aws_s3_bucket.selected.bucket_regional_domain_name
     origin_id   = "s3Origin"
 
     s3_origin_config {
-      origin_access_identity = "${aws_cloudfront_origin_access_identity.default.cloudfront_access_identity_path}"
+      origin_access_identity = aws_cloudfront_origin_access_identity.default.cloudfront_access_identity_path
     }
   }
 
   dynamic "logging_config" {
-    for_each = "${compact([var.cloudfront_logging_bucket])}"
+    for_each = compact([var.cloudfront_logging_bucket])
 
     content {
       include_cookies = false
-      bucket          = "${var.cloudfront_logging_bucket}"
-      prefix          = "${var.cloudfront_logging_prefix}"
+      bucket          = var.cloudfront_logging_bucket
+      prefix          = var.cloudfront_logging_prefix
     }
   }
 
@@ -50,7 +50,7 @@ resource "aws_cloudfront_distribution" "default" {
   }
 
   viewer_certificate {
-    acm_certificate_arn      = "${var.certificate_arn}"
+    acm_certificate_arn      = var.certificate_arn
     ssl_support_method       = "sni-only"
     minimum_protocol_version = "TLSv1.1_2016"
   }

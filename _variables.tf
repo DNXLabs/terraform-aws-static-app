@@ -3,7 +3,7 @@ variable "name" {}
 variable "s3_bucket_id" {}
 
 variable "hostnames" {
-    type = "list"
+  type = list(string)
 }
 
 variable "hosted_zone" {}

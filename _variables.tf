@@ -17,7 +17,7 @@ variable "hostname_create" {
 
 variable "cloudfront_logging_bucket" {
   type        = string
-  default     = null
+  default     = ""
   description = "Bucket to store logs from app"
 }
 
@@ -26,3 +26,4 @@ variable "cloudfront_logging_prefix" {
   default     = ""
   description = "Logging prefix"
 }
+'

@@ -26,3 +26,8 @@ variable "cloudfront_logging_prefix" {
   default     = ""
   description = "Logging prefix"
 }
+
+variable "cloudfront_web_acl_id" {
+  default     = ""
+  description = "Optional web acl (WAF) to attach to CloudFront"
+}

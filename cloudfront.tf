@@ -66,4 +66,6 @@ resource "aws_cloudfront_distribution" "default" {
     response_code      = 200
     response_page_path = "/index.html"
   }
+
+  web_acl_id = var.cloudfront_web_acl_id != "" ? var.cloudfront_web_acl_id : ""
 }

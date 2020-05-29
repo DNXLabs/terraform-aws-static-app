@@ -4,6 +4,7 @@
 [![LICENSE](https://img.shields.io/github/license/DNXLabs/terraform-aws-static-app)](https://github.com/DNXLabs/terraform-aws-static-app/blob/master/LICENSE)
 
 <!--- BEGIN_TF_DOCS --->
+
 ## Requirements
 
 | Name | Version |
@@ -23,6 +24,7 @@
 | certificate\_arn | n/a | `any` | n/a | yes |
 | cloudfront\_logging\_bucket | Bucket to store logs from app | `string` | `""` | no |
 | cloudfront\_logging\_prefix | Logging prefix | `string` | `""` | no |
+| cloudfront\_web\_acl\_id | Optional web acl (WAF) to attach to CloudFront | `string` | `""` | no |
 | hosted\_zone | n/a | `any` | n/a | yes |
 | hostname\_create | Create hostname in the hosted zone passed? | `bool` | `true` | no |
 | hostnames | n/a | `list(string)` | n/a | yes |

@@ -33,7 +33,9 @@
 
 ## Outputs
 
-No output.
+| Name | Description |
+|------|-------------|
+| cf\_domain\_name | CloudFront Domain Name |
 
 <!--- END_TF_DOCS --->
 

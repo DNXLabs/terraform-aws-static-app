@@ -1,5 +1,18 @@
 # terraform-aws-static-app
 
+Terraform-aws-static-app is a module that creates a static application with a OAI Cloudfront
+
+This module requires:
+ - Terraform Version >=0.12.20
+
+
+This modules creates:
+ - A bucket to store logs from app
+ - An Amazon CloudFront origin access identity
+ - Enable an optional web acl (WAF) to attach to CloudFront
+ - A hostname in the hosted zone passed
+ - AWS Identity and Access Management (IAM) policy for the S3 Bucket
+
 [![Lint Status](https://github.com/DNXLabs/terraform-aws-static-app/workflows/Lint/badge.svg)](https://github.com/DNXLabs/terraform-aws-static-app/actions)
 [![LICENSE](https://img.shields.io/github/license/DNXLabs/terraform-aws-static-app)](https://github.com/DNXLabs/terraform-aws-static-app/blob/master/LICENSE)
 

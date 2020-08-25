@@ -34,6 +34,7 @@ The following resources will be created:
 | cloudfront\_logging\_bucket | Bucket to store logs from app | `string` | `""` | no |
 | cloudfront\_logging\_prefix | Logging prefix | `string` | `""` | no |
 | cloudfront\_web\_acl\_id | Optional web acl (WAF) to attach to CloudFront | `string` | `""` | no |
+| default\_root\_object | Set the default file for the application | `string` | `"index.html"` | no |
 | hosted\_zone | n/a | `any` | n/a | yes |
 | hostname\_create | Create hostname in the hosted zone passed? | `bool` | `true` | no |
 | hostnames | n/a | `list(string)` | n/a | yes |

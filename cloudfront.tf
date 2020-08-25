@@ -8,7 +8,7 @@ resource "aws_cloudfront_distribution" "default" {
   comment             = var.name
   aliases             = var.hostnames
   price_class         = "PriceClass_All"
-  default_root_object = "index.html"
+  default_root_object = var.default_root_object
 
   origin {
     domain_name = data.aws_s3_bucket.selected.bucket_regional_domain_name

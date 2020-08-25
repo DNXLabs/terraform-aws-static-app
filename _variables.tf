@@ -31,3 +31,9 @@ variable "cloudfront_web_acl_id" {
   default     = ""
   description = "Optional web acl (WAF) to attach to CloudFront"
 }
+
+variable "default_root_object" {
+  type        = string
+  default     = "index.html"
+  description = "Set the default file for the application"
+}

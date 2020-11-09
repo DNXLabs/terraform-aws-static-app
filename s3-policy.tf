@@ -1,5 +1,5 @@
 data "aws_iam_policy_document" "s3_policy" {
-  count   = var.module_enabled ? 1 : 0
+  count = var.module_enabled ? 1 : 0
 
   statement {
     actions   = ["s3:GetObject"]
@@ -23,7 +23,7 @@ data "aws_iam_policy_document" "s3_policy" {
 }
 
 resource "aws_s3_bucket_policy" "oai" {
-  count   = var.module_enabled ? 1 : 0
+  count = var.module_enabled ? 1 : 0
 
   bucket = var.s3_bucket_id
   policy = data.aws_iam_policy_document.s3_policy[0].json

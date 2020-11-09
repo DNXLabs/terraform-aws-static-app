@@ -4,7 +4,7 @@ resource "aws_cloudfront_origin_access_identity" "default" {
 }
 
 resource "aws_cloudfront_distribution" "default" {
-  count   = var.module_enabled ? 1 : 0
+  count = var.module_enabled ? 1 : 0
 
   enabled             = true
   is_ipv6_enabled     = true

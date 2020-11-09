@@ -3,11 +3,11 @@ data "aws_route53_zone" "selected" {
 }
 
 resource "aws_route53_record" "hostname" {
-  count = var.hostname_create ? length(var.hostnames) : 0
+  count = var.hostname_create && var.module_enabled ? length(var.hostnames) : 0
 
   zone_id = data.aws_route53_zone.selected.zone_id
   name    = var.hostnames[count.index]
   type    = "CNAME"
   ttl     = "300"
-  records = [aws_cloudfront_distribution.default.domain_name]
+  records = [aws_cloudfront_distribution.default[count.index].domain_name]
 }

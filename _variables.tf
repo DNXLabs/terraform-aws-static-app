@@ -90,3 +90,8 @@ variable dynamic_ordered_cache_behavior {
   type        = any
   default     = []
 }
+
+variable "module_enabled" {
+  description = "Enable the module to create resources"
+  default     = true
+}

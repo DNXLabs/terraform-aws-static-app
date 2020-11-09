@@ -1,4 +1,4 @@
 output "cf_domain_name" {
   description = "CloudFront Domain Name"
-  value       = aws_cloudfront_distribution.default.domain_name
+  value       = var.module_enabled ? aws_cloudfront_distribution.default[0].domain_name : null
 }

@@ -1,8 +1,11 @@
 resource "aws_cloudfront_origin_access_identity" "default" {
+  count   = var.module_enabled ? 1 : 0
   comment = "${var.name}-s3"
 }
 
 resource "aws_cloudfront_distribution" "default" {
+  count   = var.module_enabled ? 1 : 0
+
   enabled             = true
   is_ipv6_enabled     = true
   comment             = var.name
@@ -12,11 +15,11 @@ resource "aws_cloudfront_distribution" "default" {
   wait_for_deployment = false
 
   origin {
-    domain_name = data.aws_s3_bucket.selected.bucket_regional_domain_name
+    domain_name = data.aws_s3_bucket.selected[0].bucket_regional_domain_name
     origin_id   = "s3Origin"
 
     s3_origin_config {
-      origin_access_identity = aws_cloudfront_origin_access_identity.default.cloudfront_access_identity_path
+      origin_access_identity = aws_cloudfront_origin_access_identity.default[0].cloudfront_access_identity_path
     }
   }
 

@@ -81,10 +81,10 @@ resource "aws_cloudfront_distribution" "default" {
     compress         = true
 
     forwarded_values {
-      query_string = true
-
+      query_string            = var.default_cache_behavior_forward_query_string
+      headers                 = var.default_cache_behavior_forward_headers
       cookies {
-        forward = "none"
+        forward             = var.default_cache_behavior_cookies_forward
       }
     }
 
@@ -93,7 +93,6 @@ resource "aws_cloudfront_distribution" "default" {
     default_ttl            = 3600
     max_ttl                = 86400
   }
-
 
   dynamic "ordered_cache_behavior" {
     for_each = var.dynamic_ordered_cache_behavior

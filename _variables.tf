@@ -95,3 +95,20 @@ variable "module_enabled" {
   description = "Enable the module to create resources"
   default     = true
 }
+
+variable "default_cache_behavior_forward_query_string" {
+  default     = true
+  description = "Default cache behavior forward"
+}
+
+variable "default_cache_behavior_forward_headers" {
+  default     = ["Access-Control-Request-Headers", "Access-Control-Request-Method", "Origin"]
+  description = "Default cache behavior headers forward"
+}
+
+variable "default_cache_behavior_cookies_forward" {
+  default     = ["all"]
+  description = "Default cache behavior cookies forward"
+}
+
+

@@ -107,8 +107,6 @@ variable "default_cache_behavior_forward_headers" {
 }
 
 variable "default_cache_behavior_cookies_forward" {
-  default     = ["all"]
+  default     = "all"
   description = "Default cache behavior cookies forward"
 }
-
-

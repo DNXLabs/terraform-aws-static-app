@@ -81,10 +81,10 @@ resource "aws_cloudfront_distribution" "default" {
     compress         = true
 
     forwarded_values {
-      query_string            = var.default_cache_behavior_forward_query_string
-      headers                 = var.default_cache_behavior_forward_headers
+      query_string = var.default_cache_behavior_forward_query_string
+      headers      = var.default_cache_behavior_forward_headers
       cookies {
-        forward             = var.default_cache_behavior_cookies_forward
+        forward = var.default_cache_behavior_cookies_forward
       }
     }
 

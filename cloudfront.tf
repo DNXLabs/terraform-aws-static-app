@@ -12,7 +12,7 @@ resource "aws_cloudfront_distribution" "default" {
   aliases             = var.hostnames
   price_class         = "PriceClass_All"
   default_root_object = var.default_root_object
-  wait_for_deployment = false
+  wait_for_deployment = var.wait_for_deployment
 
   origin {
     domain_name = data.aws_s3_bucket.selected[0].bucket_regional_domain_name

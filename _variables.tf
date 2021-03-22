@@ -116,3 +116,8 @@ variable "wait_for_deployment" {
   default     = false
   description = "If enabled, the resource will wait for the distribution status to change from InProgress to Deployed"
 }
+
+variable "response_page_path" {
+  default     = "/index.html"
+  description = "Custom error response page path"
+}

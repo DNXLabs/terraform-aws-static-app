@@ -49,6 +49,7 @@ The following resources will be created:
 | minimum\_protocol\_version | The minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. <br>    Can only be set if cloudfront\_default\_certificate = false. One of SSLv3, TLSv1, TLSv1\_2016, <br>    TLSv1.1\_2016, TLSv1.2\_2018 or TLSv1.2\_2019. Default: TLSv1. NOTE: If you are using a custom <br>    certificate (specified with acm\_certificate\_arn or iam\_certificate\_id), and have specified <br>    sni-only in ssl\_support\_method, TLSv1 or later must be specified. If you have specified vip <br>    in ssl\_support\_method, only SSLv3 or TLSv1 can be specified. If you have specified <br>    cloudfront\_default\_certificate, TLSv1 must be specified. | `string` | `"TLSv1.2_2019"` | no |
 | module\_enabled | Enable the module to create resources | `bool` | `true` | no |
 | name | n/a | `any` | n/a | yes |
+| response\_page\_path | Custom error response page path | `string` | `"/index.html"` | no |
 | restriction\_location | The ISO 3166-1-alpha-2 codes for which you want CloudFront either to distribute your content (whitelist) or not distribute your content (blacklist) | `list(any)` | `[]` | no |
 | restriction\_type | The restriction type of your CloudFront distribution geolocation restriction. Options include none, whitelist, blacklist | `string` | `"none"` | no |
 | s3\_bucket\_id | n/a | `any` | n/a | yes |

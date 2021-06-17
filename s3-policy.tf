@@ -22,8 +22,8 @@ data "aws_iam_policy_document" "s3_policy" {
   }
 
   statement {
-    sid    = "ForceSSLOnlyAccess"
-    effect = "Deny"
+    sid     = "ForceSSLOnlyAccess"
+    effect  = "Deny"
     actions = ["s3:*"]
     principals {
       type        = "AWS"

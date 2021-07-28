@@ -37,6 +37,7 @@ The following resources will be created:
 | cloudfront\_origin\_keepalive\_timeout | The amount of time, in seconds, that CloudFront maintains an idle connection with a custom origin server before closing the connection. Valid values are from 1 to 60 seconds. | `number` | `5` | no |
 | cloudfront\_origin\_read\_timeout | The amount of time, in seconds, that CloudFront waits for a response from a custom origin. The value applies both to the time that CloudFront waits for an initial response and the time that CloudFront waits for each subsequent packet. Valid values are from 4 to 60 seconds. | `number` | `30` | no |
 | cloudfront\_web\_acl\_id | Optional web acl (WAF) to attach to CloudFront | `string` | `""` | no |
+| default\_cache\_behavior\_allowed\_methods | Methods allowed for default origin cache behavior | `list` | <pre>[<br>  "DELETE",<br>  "GET",<br>  "HEAD",<br>  "OPTIONS",<br>  "PATCH",<br>  "POST",<br>  "PUT"<br>]</pre> | no |
 | default\_cache\_behavior\_cookies\_forward | Default cache behavior cookies forward | `string` | `"all"` | no |
 | default\_cache\_behavior\_forward\_headers | Default cache behavior headers forward | `list` | <pre>[<br>  "Access-Control-Request-Headers",<br>  "Access-Control-Request-Method",<br>  "Origin"<br>]</pre> | no |
 | default\_cache\_behavior\_forward\_query\_string | Default cache behavior forward | `bool` | `true` | no |

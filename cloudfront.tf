@@ -75,7 +75,7 @@ resource "aws_cloudfront_distribution" "default" {
   }
 
   default_cache_behavior {
-    allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
+    allowed_methods  = var.default_cache_behavior_allowed_methods
     cached_methods   = ["GET", "HEAD"]
     target_origin_id = "s3Origin"
     compress         = true
@@ -104,13 +104,18 @@ resource "aws_cloudfront_distribution" "default" {
       cached_methods   = cache_behavior.value.cached_methods
       target_origin_id = cache_behavior.value.target_origin_id
       compress         = lookup(cache_behavior.value, "compress", null)
+      cache_policy_id  = lookup(cache_behavior.value, "cache_policy_id", null)
 
-      forwarded_values {
-        query_string = cache_behavior.value.query_string
-        cookies {
-          forward = cache_behavior.value.cookies_forward
+      dynamic "forwarded_values" {
+        iterator = fwd
+        for_each = lookup(cache_behavior.value, "use_forwarded_values", [])
+        content {
+          query_string = lookup(fwd.value, "query_string", null)
+          headers      = lookup(fwd.value, "headers", null)
+          cookies {
+            forward = lookup(fwd.value, "cookies_forward", null)
+          }
         }
-        headers = lookup(cache_behavior.value, "headers", null)
       }
 
       dynamic "lambda_function_association" {

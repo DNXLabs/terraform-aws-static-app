@@ -112,6 +112,11 @@ variable "default_cache_behavior_cookies_forward" {
   description = "Default cache behavior cookies forward"
 }
 
+variable "default_cache_behavior_allowed_methods" {
+  default     = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
+  description = "Methods allowed for default origin cache behavior"
+}
+
 variable "wait_for_deployment" {
   default     = false
   description = "If enabled, the resource will wait for the distribution status to change from InProgress to Deployed"
@@ -121,3 +126,4 @@ variable "response_page_path" {
   default     = "/index.html"
   description = "Custom error response page path"
 }
+

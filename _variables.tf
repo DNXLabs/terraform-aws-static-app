@@ -127,3 +127,7 @@ variable "response_page_path" {
   description = "Custom error response page path"
 }
 
+variable "lambda_edge" {
+  default = null
+  description = "Lambda EDGE configuration"
+}

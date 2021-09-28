@@ -128,6 +128,6 @@ variable "response_page_path" {
 }
 
 variable "lambda_edge" {
-  default = null
+  default     = null
   description = "Lambda EDGE configuration"
 }

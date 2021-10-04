@@ -45,9 +45,10 @@ The following resources will be created:
 | dynamic\_custom\_origin\_config | Configuration for the custom origin config to be used in dynamic block | `any` | `[]` | no |
 | dynamic\_ordered\_cache\_behavior | Ordered Cache Behaviors to be used in dynamic block | `any` | `[]` | no |
 | hosted\_zone | n/a | `any` | n/a | yes |
+| hostname\_alias | Create an Alias host in route53 for Cloudfront (instead of CNAME)? | `bool` | `false` | no |
 | hostname\_create | Create hostname in the hosted zone passed? | `bool` | `true` | no |
 | hostnames | n/a | `list(string)` | n/a | yes |
-| lambda\_edge | Lambda EDGE configuration | `any` | `null` | no |
+| lambda\_edge | Lambda EDGE configuration | `list` | `[]` | no |
 | minimum\_protocol\_version | The minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. <br>    Can only be set if cloudfront\_default\_certificate = false. One of SSLv3, TLSv1, TLSv1\_2016, <br>    TLSv1.1\_2016, TLSv1.2\_2018 or TLSv1.2\_2019. Default: TLSv1. NOTE: If you are using a custom <br>    certificate (specified with acm\_certificate\_arn or iam\_certificate\_id), and have specified <br>    sni-only in ssl\_support\_method, TLSv1 or later must be specified. If you have specified vip <br>    in ssl\_support\_method, only SSLv3 or TLSv1 can be specified. If you have specified <br>    cloudfront\_default\_certificate, TLSv1 must be specified. | `string` | `"TLSv1.2_2019"` | no |
 | module\_enabled | Enable the module to create resources | `bool` | `true` | no |
 | name | n/a | `any` | n/a | yes |

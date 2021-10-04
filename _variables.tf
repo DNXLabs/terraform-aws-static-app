@@ -15,6 +15,11 @@ variable "hostname_create" {
   default     = true
 }
 
+variable "hostname_alias" {
+  description = "Create an Alias host in route53 for Cloudfront (instead of CNAME)?"
+  default     = false
+}
+
 variable "cloudfront_forward_headers" {
   default     = ["*"]
   description = "Headers to forward to origin from CloudFront"
@@ -128,6 +133,6 @@ variable "response_page_path" {
 }
 
 variable "lambda_edge" {
-  default     = null
+  default     = []
   description = "Lambda EDGE configuration"
 }

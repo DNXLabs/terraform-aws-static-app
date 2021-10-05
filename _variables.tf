@@ -136,3 +136,18 @@ variable "lambda_edge" {
   default     = []
   description = "Lambda EDGE configuration"
 }
+variable "alarms" {
+  type        = map(any)
+  default     = {}
+  description = <<EOF
+The keys of the map are the metric names. This list must be given as a comma-separated string.
+The following arguments are supported:
+  - comparison_operator: GreaterThanOrEqualToThreshold, GreaterThanThreshold, LessThanThreshold, LessThanOrEqualToThreshold
+  - evaluation_periods: The number of periods over which data is compared to the specified threshold.
+  - period: The period in seconds over which the specified statistic is applied.
+  - statistic: The statistic to apply to the alarm's associated metric.
+  - threshold: The number of occurances over a given period.
+  - actions: The actions to execute when the alarm transitions into an ALARM state (ARN). 
+  - ok_actions: The list of actions to execute when this alarm transitions into an OK state from any other state (ARN). 
+EOF
+}

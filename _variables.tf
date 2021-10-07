@@ -136,6 +136,31 @@ variable "lambda_edge" {
   default     = []
   description = "Lambda EDGE configuration"
 }
+
+variable "default_threshold" {
+  description = "The default threshold for the metric."
+  default     = 5
+}
+
+variable "default_evaluation_periods" {
+  description = "The default amount of evaluation periods."
+  default     = 2
+}
+
+variable "default_period" {
+  description = "The default evaluation period."
+  default     = 60
+}
+
+variable "default_comparison_operator" {
+  description = "The default comparison operator."
+  default     = "GreaterThanOrEqualToThreshold"
+}
+
+variable "default_statistic" {
+  description = "The default statistic."
+  default     = "Average"
+}
 variable "alarms" {
   type        = map(any)
   default     = {}

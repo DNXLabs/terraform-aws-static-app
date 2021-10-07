@@ -1,4 +1,4 @@
-resource "aws_cloudwatch_metric_alarm" "alarm" {
+resource "aws_cloudwatch_metric_alarm" "cloufront_alarm" {
   count = length(var.alarms)
 
   alarm_name = format("cloudfront-%s-%s",

@@ -30,6 +30,7 @@ The following resources will be created:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| alarms | The keys of the map are the metric names. This list must be given as a comma-separated string.<br>The following arguments are supported:<br>  - comparison\_operator: GreaterThanOrEqualToThreshold, GreaterThanThreshold, LessThanThreshold, LessThanOrEqualToThreshold<br>  - evaluation\_periods: The number of periods over which data is compared to the specified threshold.<br>  - period: The period in seconds over which the specified statistic is applied.<br>  - statistic: The statistic to apply to the alarm's associated metric.<br>  - threshold: The number of occurances over a given period.<br>  - actions: The actions to execute when the alarm transitions into an ALARM state (ARN). <br>  - ok\_actions: The list of actions to execute when this alarm transitions into an OK state from any other state (ARN). | `map(any)` | `{}` | no |
 | certificate\_arn | n/a | `any` | n/a | yes |
 | cloudfront\_forward\_headers | Headers to forward to origin from CloudFront | `list` | <pre>[<br>  "*"<br>]</pre> | no |
 | cloudfront\_logging\_bucket | Bucket to store logs from app | `string` | `""` | no |
@@ -41,7 +42,12 @@ The following resources will be created:
 | default\_cache\_behavior\_cookies\_forward | Default cache behavior cookies forward | `string` | `"all"` | no |
 | default\_cache\_behavior\_forward\_headers | Default cache behavior headers forward | `list` | <pre>[<br>  "Access-Control-Request-Headers",<br>  "Access-Control-Request-Method",<br>  "Origin"<br>]</pre> | no |
 | default\_cache\_behavior\_forward\_query\_string | Default cache behavior forward | `bool` | `true` | no |
+| default\_comparison\_operator | The default comparison operator. | `string` | `"GreaterThanOrEqualToThreshold"` | no |
+| default\_evaluation\_periods | The default amount of evaluation periods. | `number` | `2` | no |
+| default\_period | The default evaluation period. | `number` | `60` | no |
 | default\_root\_object | Set the default file for the application | `string` | `"index.html"` | no |
+| default\_statistic | The default statistic. | `string` | `"Average"` | no |
+| default\_threshold | The default threshold for the metric. | `number` | `5` | no |
 | dynamic\_custom\_origin\_config | Configuration for the custom origin config to be used in dynamic block | `any` | `[]` | no |
 | dynamic\_ordered\_cache\_behavior | Ordered Cache Behaviors to be used in dynamic block | `any` | `[]` | no |
 | hosted\_zone | n/a | `any` | n/a | yes |

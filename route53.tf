@@ -1,11 +1,12 @@
 data "aws_route53_zone" "selected" {
-  name = var.hosted_zone
+  count = var.hostname_create && var.module_enabled ? 1 : 0
+  name  = var.hosted_zone
 }
 
 resource "aws_route53_record" "hostname" {
   count = var.hostname_create && var.module_enabled && var.hostname_alias == false ? length(var.hostnames) : 0
 
-  zone_id = data.aws_route53_zone.selected.zone_id
+  zone_id = data.aws_route53_zone.selected[0].zone_id
   name    = var.hostnames[count.index]
   type    = "CNAME"
   ttl     = "300"
@@ -15,7 +16,7 @@ resource "aws_route53_record" "hostname" {
 resource "aws_route53_record" "hostname_alias" {
   count = var.hostname_create && var.module_enabled && var.hostname_alias == true ? length(var.hostnames) : 0
 
-  zone_id = data.aws_route53_zone.selected.zone_id
+  zone_id = data.aws_route53_zone.selected[0].zone_id
   name    = var.hostnames[count.index]
   type    = "A"
   alias {

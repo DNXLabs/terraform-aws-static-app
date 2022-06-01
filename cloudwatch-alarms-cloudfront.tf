@@ -1,6 +1,8 @@
 resource "aws_cloudwatch_metric_alarm" "cloufront_alarm" {
   count = length(var.alarms)
 
+  provider = aws.us-east-1
+
   alarm_name = format("cloudfront-%s-%s",
     aws_cloudfront_distribution.default[0].id,
     element(keys(var.alarms), count.index)

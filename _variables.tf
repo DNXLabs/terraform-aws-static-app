@@ -122,6 +122,11 @@ variable "default_cache_behavior_allowed_methods" {
   description = "Methods allowed for default origin cache behavior"
 }
 
+variable "default_cache_behavior_response_headers_id" {
+  default     = ""
+  description = "The identifier for a response headers policy"
+}
+
 variable "wait_for_deployment" {
   default     = false
   description = "If enabled, the resource will wait for the distribution status to change from InProgress to Deployed"

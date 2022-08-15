@@ -75,10 +75,11 @@ resource "aws_cloudfront_distribution" "default" {
   }
 
   default_cache_behavior {
-    allowed_methods  = var.default_cache_behavior_allowed_methods
-    cached_methods   = ["GET", "HEAD"]
-    target_origin_id = "s3Origin"
-    compress         = true
+    allowed_methods            = var.default_cache_behavior_allowed_methods
+    cached_methods             = ["GET", "HEAD"]
+    target_origin_id           = "s3Origin"
+    compress                   = true
+    response_headers_policy_id = var.default_cache_behavior_response_headers_id
 
     forwarded_values {
       query_string = var.default_cache_behavior_forward_query_string

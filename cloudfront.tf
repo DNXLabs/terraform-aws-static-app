@@ -80,6 +80,7 @@ resource "aws_cloudfront_distribution" "default" {
     target_origin_id           = "s3Origin"
     compress                   = true
     response_headers_policy_id = var.default_cache_behavior_response_headers_id
+    trusted_key_groups         = length(var.trusted_key_groups) > 0 ? [for i in aws_cloudfront_key_group.default : i.id] : []
 
     forwarded_values {
       query_string = var.default_cache_behavior_forward_query_string

@@ -181,3 +181,12 @@ The following arguments are supported:
   - ok_actions: The list of actions to execute when this alarm transitions into an OK state from any other state (ARN). 
 EOF
 }
+
+variable "trusted_key_groups" {
+  type = list(object({
+    name                = string
+    public_key_contents = string
+  }))
+  default     = []
+  description = "A list with `name` and `public_key` to create and attach a trusted key group to the distribution"
+}
